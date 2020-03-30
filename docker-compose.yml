@@ -1,0 +1,8 @@
+version: '3'
+services:
+  flask-app:
+    build: ./flask-app
+  proxy:
+    build: ./haproxy
+    ports:
+      - "8000:8000"
