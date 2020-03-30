@@ -1,17 +1,13 @@
 FROM python:3.7.1
 
-RUN git clone https://github.com/Sysnove/flask-hello-world.git
+COPY . /app
 
-RUN apt-get update
+WORKDIR /app
 
-RUN pip install Flask
-
-WORKDIR /flask-hello-world 
-
-ENV FLASK_ENV="development"
-
-ENV FLASK_APP=hello.py
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 
-CMD [ "flask", "run", "--host=0.0.0.0" ]
+ENTRYPOINT [ "python" ]
+
+CMD [ "hello.py" ]
