@@ -4,5 +4,7 @@ services:
     build: ./flask-app
   proxy:
     build: ./haproxy
+    depends_on:
+      - flask-app
     ports:
       - "8000:8000"
